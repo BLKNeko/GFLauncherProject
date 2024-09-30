@@ -19,11 +19,13 @@ namespace GFUpdateProject
 
         static string manifestUrl = "http://172.26.162.7/UPDFiles/manifest.json"; // URL do manifesto no servidor
         static string localGamePath = @"A:\GAMESALPHA\GrandFantasia Server Files\074\TestClientFolder"; // Caminho do jogo no PC do client
+        static Manifest manifest;
 
 
         public Main()
         {
             InitializeComponent();
+            ManifestDownload();
         }
 
 
@@ -33,6 +35,13 @@ namespace GFUpdateProject
             //MessageBox.Show($"executar o comando");
             //await UpdateFiles();
             //MessageBox.Show($"executar o comando");
+
+            // Ler o manifesto
+            //var manifest = JsonConvert.DeserializeObject<Manifest>(File.ReadAllText(manifestUrl));
+
+            // Definir a barra de progresso com o número total de arquivos
+            FullPB.Maximum = manifest.Files.Length;
+            FullPB.Value = 0; // Começar no zero
 
 
             try
@@ -54,10 +63,8 @@ namespace GFUpdateProject
 
         }
 
-
-        public static async Task UpdateFiles() 
+        public static async Task ManifestDownload() 
         {
-
             try
             {
                 using (HttpClient client = new HttpClient())
@@ -66,7 +73,32 @@ namespace GFUpdateProject
 
                     // Baixar o manifesto JSON
                     string manifestJson = await client.GetStringAsync(manifestUrl);
-                    var manifest = Newtonsoft.Json.JsonConvert.DeserializeObject<Manifest>(manifestJson);
+                    manifest = Newtonsoft.Json.JsonConvert.DeserializeObject<Manifest>(manifestJson);
+
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao baixar os arquivos: {ex.Message}");
+            }
+
+
+        }
+
+
+        public async Task UpdateFiles() 
+        {
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    //MessageBox.Show("Baixando o manifesto...");
+
+                    // Baixar o manifesto JSON
+                    //string manifestJson = await client.GetStringAsync(manifestUrl);
+                    //var manifest = Newtonsoft.Json.JsonConvert.DeserializeObject<Manifest>(manifestJson);
 
                     // Processar cada arquivo no manifesto
                     foreach (var file in manifest.Files)
@@ -84,18 +116,27 @@ namespace GFUpdateProject
                         // Verificar se o arquivo precisa ser atualizado
                         if (!File.Exists(localFilePath) || !VerifyFileChecksum(localFilePath, file.Checksum))
                         {
-                            //MessageBox.Show($"Baixando {file.Name}...");
+                            MessageBox.Show($"Baixando {file.Name}...");
 
                             // Baixar o arquivo
-                            byte[] fileData = await client.GetByteArrayAsync(file.Url);
-                            File.WriteAllBytes(localFilePath, fileData);
+                            //byte[] fileData = await client.GetByteArrayAsync(file.Url);
+                            //File.WriteAllBytes(localFilePath, fileData);
 
-                           // MessageBox.Show($"{file.Name} atualizado com sucesso.");
+                            // Baixar o arquivo com progresso
+                            await DownloadFileWithProgressAsync(client, file.Url, localFilePath);
+
+
+
+                            // MessageBox.Show($"{file.Name} atualizado com sucesso.");
                         }
                         else
                         {
-                            //MessageBox.Show($"{file.Name} já está atualizado.");
+                            MessageBox.Show($"{file.Name} já está atualizado.");
                         }
+
+                        // Atualizar a barra de progresso
+                        FullPB.Value += 1;
+
                     }
                 }
             }
@@ -123,8 +164,49 @@ namespace GFUpdateProject
          //END
         }
 
-        // Estrutura que representa o manifesto JSON
-        public class Manifest
+
+        private async Task DownloadFileWithProgressAsync(HttpClient client, string fileUrl, string localFilePath)
+        {
+            using (var response = await client.GetAsync(fileUrl, HttpCompletionOption.ResponseHeadersRead))
+            {
+                response.EnsureSuccessStatusCode();
+
+                // Tamanho total do arquivo
+                var totalBytes = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
+
+                // Inicializar a barra de progresso do arquivo
+                FilePB.Value = 0;
+                FilePB.Maximum = (int)totalBytes;
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync())
+                {
+                    using (var fileStream = new FileStream(localFilePath, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
+                    {
+                        var buffer = new byte[8192];
+                        long totalRead = 0;
+                        int bytesRead;
+
+                        while ((bytesRead = await contentStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        {
+                            await fileStream.WriteAsync(buffer, 0, bytesRead);
+                            totalRead += bytesRead;
+
+                            if (totalBytes != -1)
+                            {
+                                // Atualizar a barra de progresso para o arquivo atual
+                                FilePB.Value = (int)totalRead;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+    // Estrutura que representa o manifesto JSON
+    public class Manifest
         {
             public string Version { get; set; }
             public FileInfo[] Files { get; set; }
