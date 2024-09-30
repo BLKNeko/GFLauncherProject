@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Bmf13OOjBoUO/7z/slIhano2VXAwcXMgFsvMSpcNV5Cnl0iLPGiGTk9ayPDfU8dRzZN9rmHM/06CQVz7/GURhw==",
+  "success": true,
+  "projectFilePath": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\augus\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
