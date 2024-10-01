@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
+using static System.Net.WebRequestMethods;
 
 namespace GFUpdateProject
 {
@@ -15,7 +16,7 @@ namespace GFUpdateProject
         //static string localVersionFile = "version.txt"; // Arquivo local
 
         //static string serverFilesBaseUrl = "A:\\GAMESALPHA\\GrandFantasia Server Files\\074\\TestServerFolder\\";
-        
+
 
         static string manifestUrl = "http://172.26.162.7/UPDFiles/manifest.json"; // URL do manifesto no servidor
         static string localGamePath = @"A:\GAMESALPHA\GrandFantasia Server Files\074\TestClientFolder"; // Caminho do jogo no PC do client
@@ -24,6 +25,7 @@ namespace GFUpdateProject
 
         public Main()
         {
+
             InitializeComponent();
             ManifestDownload();
         }
@@ -40,8 +42,8 @@ namespace GFUpdateProject
             //var manifest = JsonConvert.DeserializeObject<Manifest>(File.ReadAllText(manifestUrl));
 
             // Definir a barra de progresso com o número total de arquivos
-            FullPB.Maximum = manifest.Files.Length;
-            FullPB.Value = 0; // Começar no zero
+            FullPBCust.Maximum = manifest.Files.Length;
+            FullPBCust.Value = 0; // Começar no zero
 
 
             try
@@ -114,7 +116,7 @@ namespace GFUpdateProject
                         }
 
                         // Verificar se o arquivo precisa ser atualizado
-                        if (!File.Exists(localFilePath) || !VerifyFileChecksum(localFilePath, file.Checksum))
+                        if (!System.IO.File.Exists(localFilePath) || !VerifyFileChecksum(localFilePath, file.Checksum))
                         {
                             MessageBox.Show($"Baixando {file.Name}...");
 
@@ -135,7 +137,10 @@ namespace GFUpdateProject
                         }
 
                         // Atualizar a barra de progresso
-                        FullPB.Value += 1;
+                        //FullPB.Value += 1;
+                        //FilePBCust.Value += 1;
+                        FullPBCust.Value += 1;
+
 
                     }
                 }
@@ -151,7 +156,7 @@ namespace GFUpdateProject
             {
                 using (var md5 = MD5.Create())
                 {
-                    using (var stream = File.OpenRead(filePath))
+                    using (var stream = System.IO.File.OpenRead(filePath))
                     {
                         var fileChecksum = md5.ComputeHash(stream);
                         string fileChecksumHex = BitConverter.ToString(fileChecksum).Replace("-", "").ToLowerInvariant();
@@ -175,8 +180,8 @@ namespace GFUpdateProject
                 var totalBytes = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
 
                 // Inicializar a barra de progresso do arquivo
-                FilePB.Value = 0;
-                FilePB.Maximum = (int)totalBytes;
+                FilePBCust.Value = 0;
+                FilePBCust.Maximum = (int)totalBytes;
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync())
                 {
@@ -194,7 +199,7 @@ namespace GFUpdateProject
                             if (totalBytes != -1)
                             {
                                 // Atualizar a barra de progresso para o arquivo atual
-                                FilePB.Value = (int)totalRead;
+                                FilePBCust.Value = (int)totalRead;
                             }
                         }
                     }
