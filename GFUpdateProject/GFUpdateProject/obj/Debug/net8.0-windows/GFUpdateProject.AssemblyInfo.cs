@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GFUpdateProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c912c141eb05cd74022e4b2999fe8387c4996e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7d15c4aa03404056d1de0f7bd82f1cb8555d990")]
 [assembly: System.Reflection.AssemblyProductAttribute("GFUpdateProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GFUpdateProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
