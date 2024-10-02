@@ -28,6 +28,11 @@ namespace GFUpdateProject
 
             InitializeComponent();
             ManifestDownload();
+
+
+            GameFolderTB.Text = localGamePath;
+            
+
         }
 
 
@@ -65,7 +70,7 @@ namespace GFUpdateProject
 
         }
 
-        public static async Task ManifestDownload() 
+        public async Task ManifestDownload()
         {
             try
             {
@@ -76,8 +81,11 @@ namespace GFUpdateProject
                     // Baixar o manifesto JSON
                     string manifestJson = await client.GetStringAsync(manifestUrl);
                     manifest = Newtonsoft.Json.JsonConvert.DeserializeObject<Manifest>(manifestJson);
+                    ManifestVersionTB.Text = manifest.Version;
 
-                    
+                    //MessageBox.Show(manifest.Version);
+
+
                 }
             }
             catch (Exception ex)
@@ -89,7 +97,7 @@ namespace GFUpdateProject
         }
 
 
-        public async Task UpdateFiles() 
+        public async Task UpdateFiles()
         {
 
             try
@@ -166,7 +174,7 @@ namespace GFUpdateProject
             }
 
 
-         //END
+            //END
         }
 
 
@@ -210,8 +218,8 @@ namespace GFUpdateProject
 
 
 
-    // Estrutura que representa o manifesto JSON
-    public class Manifest
+        // Estrutura que representa o manifesto JSON
+        public class Manifest
         {
             public string Version { get; set; }
             public FileInfo[] Files { get; set; }
@@ -225,5 +233,28 @@ namespace GFUpdateProject
             public long Size { get; set; }
         }
 
+        private void GameFolderBT_Click(object sender, EventArgs e)
+        {
+
+            // Instancia a classe.
+            using (FolderBrowserDialog dirDialog = new FolderBrowserDialog())
+            {
+                // Mostra a janela de escolha do directorio
+                DialogResult res = dirDialog.ShowDialog();
+                if (res == DialogResult.OK)
+                {
+                    // Como o utilizador carregou no OK, o directorio escolhido pode ser acedido da seguinte forma:
+                    localGamePath = dirDialog.SelectedPath;
+                    GameFolderTB.Text = localGamePath;
+                }
+                else
+                {
+                    // Caso o utilizador tenha cancelado
+                    // ...
+                }
+            }
+
+
+        }
     }
 }
