@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|a:\\gamesalpha\\grandfantasia server files\\gf projects\\gfupdateproject\\gfupdateproject\\gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|a:\\gamesalpha\\grandfantasia server files\\gf projects\\gfupdateproject\\gfupdateproject\\gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "GFUpdateProject\\Main.Designer.cs",
               "ToolTip": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Main.Designer.cs",
               "RelativeToolTip": "GFUpdateProject\\Main.Designer.cs",
-              "ViewState": "AQIAAIIAAAAAAAAAAAAmwIwAAAAqAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAgwKQAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-28T17:40:30.576Z",
               "EditorCaption": ""
