@@ -17,3 +17,4 @@ A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdatePro
 A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\obj\Debug\net8.0-windows\GFUpdateProject.csproj.AssemblyReference.cache
 A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\obj\Debug\net8.0-windows\GFUpdate.265705F4.Up2Date
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\obj\Debug\net8.0-windows\GFUpdateProject.Properties.Resources.resources
