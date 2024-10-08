@@ -7,12 +7,20 @@
       "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\gfupdateproject\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|a:\\gamesalpha\\grandfantasia server files\\gf projects\\gfupdateproject\\gfupdateproject\\gfupdateproject\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
+      "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|a:\\gamesalpha\\grandfantasia server files\\gf projects\\gfupdateproject\\gfupdateproject\\gfupdateproject\\gfupdateproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\gfupdateproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\gfupdateproject\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|solutionrelative:gfupdateproject\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{189906EE-5EAB-4642-A518-60382874B8C6}|GFUpdateProject\\GFUpdateProject.csproj|A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\gfupdateproject\\customprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,11 +38,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Settings.settings",
+              "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Properties\\Settings.settings",
+              "RelativeDocumentMoniker": "GFUpdateProject\\Properties\\Settings.settings",
+              "ToolTip": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Properties\\Settings.settings",
+              "RelativeToolTip": "GFUpdateProject\\Properties\\Settings.settings",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
+              "WhenOpened": "2024-10-08T21:32:44.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "GFUpdateProject",
+              "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject.csproj",
+              "RelativeDocumentMoniker": "GFUpdateProject\\GFUpdateProject.csproj",
+              "ToolTip": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject.csproj",
+              "RelativeToolTip": "GFUpdateProject\\GFUpdateProject.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-08T21:32:32.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CustomProgressBar.cs",
               "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\CustomProgressBar.cs",
               "RelativeDocumentMoniker": "GFUpdateProject\\CustomProgressBar.cs",
@@ -46,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Program.cs",
               "RelativeDocumentMoniker": "GFUpdateProject\\Program.cs",
@@ -58,26 +90,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Main.Designer.cs",
               "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Main.Designer.cs",
               "RelativeDocumentMoniker": "GFUpdateProject\\Main.Designer.cs",
               "ToolTip": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Main.Designer.cs",
               "RelativeToolTip": "GFUpdateProject\\Main.Designer.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAgwKQAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALQAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-28T17:40:30.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Main.cs",
               "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Main.cs",
               "RelativeDocumentMoniker": "GFUpdateProject\\Main.cs",
               "ToolTip": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFUpdateProject\\GFUpdateProject\\GFUpdateProject\\Main.cs",
               "RelativeToolTip": "GFUpdateProject\\Main.cs",
-              "ViewState": "AQIAAIAAAAAAAAAAAAAIwFMAAAA+AAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwCMAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-28T17:38:17.822Z",
               "EditorCaption": ""
