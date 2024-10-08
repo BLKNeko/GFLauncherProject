@@ -17,9 +17,11 @@ namespace GFUpdateProject
 
         //static string serverFilesBaseUrl = "A:\\GAMESALPHA\\GrandFantasia Server Files\\074\\TestServerFolder\\";
 
-
-        static string manifestUrl = "http://172.26.162.7/UPDFiles/manifest.json"; // URL do manifesto no servidor
-        static string localGamePath = @"A:\GAMESALPHA\GrandFantasia Server Files\074\TestClientFolder"; // Caminho do jogo no PC do client
+        private static string ServerIP = Properties.Settings.Default.ServerIpConfig;
+        //static string manifestUrl = "http://172.26.162.7/UPDFiles/manifest.json"; // URL do manifesto no servidor
+        static string manifestUrl = "http://" + ServerIP + "/UPDFiles/manifest.json"; // URL do manifesto no servidor
+        //static string localGamePath = @"A:\GAMESALPHA\GrandFantasia Server Files\074\TestClientFolder"; // Caminho do jogo no PC do client
+        static string localGamePath = Environment.CurrentDirectory; // Caminho do jogo no PC do client
         static Manifest manifest;
 
 
@@ -31,7 +33,8 @@ namespace GFUpdateProject
 
 
             GameFolderTB.Text = localGamePath;
-            
+            ServerAddressTB.Text = ServerIP;
+
 
         }
 
@@ -72,6 +75,7 @@ namespace GFUpdateProject
 
         public async Task ManifestDownload()
         {
+            manifestUrl = "http://" + ServerIP + "/UPDFiles/manifest.json";
             try
             {
                 using (HttpClient client = new HttpClient())
@@ -83,7 +87,7 @@ namespace GFUpdateProject
                     manifest = Newtonsoft.Json.JsonConvert.DeserializeObject<Manifest>(manifestJson);
                     ManifestVersionTB.Text = manifest.Version;
 
-                    //MessageBox.Show(manifest.Version);
+                    MessageBox.Show(manifest.Version);
 
 
                 }
@@ -255,6 +259,19 @@ namespace GFUpdateProject
             }
 
 
+        }
+
+        private void ManifestDownloadBT_Click(object sender, EventArgs e)
+        {
+            ManifestDownload();
+        }
+
+        private void ServerAddressTB_TextChanged(object sender, EventArgs e)
+        {
+            ServerIP = ServerAddressTB.Text;
+            //MessageBox.Show(ServerIP);
+            Properties.Settings.Default.ServerIpConfig = ServerIP;
+            Properties.Settings.Default.Save();
         }
     }
 }

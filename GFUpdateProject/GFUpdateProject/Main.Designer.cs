@@ -40,33 +40,16 @@
             BGCenterPB = new PictureBox();
             FullPBCust = new CustomProgressBar();
             FilePBCust = new CustomProgressBar();
+            ManifestDownloadBT = new Button();
+            IpLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)BGFrameDWPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGFrameUPPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGCenterPB).BeginInit();
             SuspendLayout();
-            //
-            //Custom Progress Bar
-            //
-            FullPBCust.StartColor = Color.FromArgb(250, 33, 97, 204);
-            FullPBCust.EndColor = Color.FromArgb(200, 0, 249, 255);
-            FullPBCust.Location = new Point(12, 420);
-            FullPBCust.Name = "FullPBCust";
-            FullPBCust.Size = new Size(776, 20);
-            FullPBCust.Maximum = 10;
-            FullPBCust.Value = 10;
-            //
-            //Custom Progress Bar
-            //
-            FilePBCust.StartColor = Color.FromArgb(250, 232, 90, 24);
-            FilePBCust.EndColor = Color.FromArgb(250, 255, 82, 82);
-            FilePBCust.Location = new Point(12, 390);
-            FilePBCust.Name = "FilePBCust";
-            FilePBCust.Size = new Size(776, 20);
-            FilePBCust.Maximum = 10;
-            FilePBCust.Value = 10;
             // 
             // updateBT
             // 
+            updateBT.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
             updateBT.Location = new Point(653, 292);
             updateBT.Name = "updateBT";
             updateBT.Size = new Size(135, 62);
@@ -94,33 +77,37 @@
             // 
             // GameFolderTB
             // 
+            GameFolderTB.Font = new Font("HanWangYenHeavy", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
             GameFolderTB.Location = new Point(12, 12);
             GameFolderTB.Name = "GameFolderTB";
             GameFolderTB.ReadOnly = true;
-            GameFolderTB.Size = new Size(687, 23);
+            GameFolderTB.Size = new Size(687, 21);
             GameFolderTB.TabIndex = 3;
             // 
             // GameFolderBT
             // 
             GameFolderBT.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 136);
-            GameFolderBT.Location = new Point(713, 9);
+            GameFolderBT.Location = new Point(705, 9);
             GameFolderBT.Name = "GameFolderBT";
-            GameFolderBT.Size = new Size(75, 30);
+            GameFolderBT.Size = new Size(83, 39);
             GameFolderBT.TabIndex = 4;
-            GameFolderBT.Text = "Folder";
+            GameFolderBT.Text = "Game Folder";
             GameFolderBT.UseVisualStyleBackColor = true;
             GameFolderBT.Click += GameFolderBT_Click;
             // 
             // ServerAddressTB
             // 
-            ServerAddressTB.Location = new Point(12, 41);
+            ServerAddressTB.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            ServerAddressTB.Location = new Point(12, 59);
             ServerAddressTB.Name = "ServerAddressTB";
-            ServerAddressTB.Size = new Size(198, 23);
+            ServerAddressTB.Size = new Size(198, 26);
             ServerAddressTB.TabIndex = 5;
+            ServerAddressTB.TextChanged += ServerAddressTB_TextChanged;
             // 
             // ManifestVersionTB
             // 
-            ManifestVersionTB.Location = new Point(624, 41);
+            ManifestVersionTB.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            ManifestVersionTB.Location = new Point(624, 59);
             ManifestVersionTB.Name = "ManifestVersionTB";
             ManifestVersionTB.ReadOnly = true;
             ManifestVersionTB.Size = new Size(75, 23);
@@ -156,11 +143,59 @@
             BGCenterPB.TabIndex = 9;
             BGCenterPB.TabStop = false;
             // 
+            // FullPBCust
+            // 
+            FullPBCust.EndColor = Color.FromArgb(200, 0, 249, 255);
+            FullPBCust.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            FullPBCust.Location = new Point(12, 420);
+            FullPBCust.Maximum = 10;
+            FullPBCust.Name = "FullPBCust";
+            FullPBCust.Size = new Size(776, 20);
+            FullPBCust.StartColor = Color.FromArgb(250, 33, 97, 204);
+            FullPBCust.TabIndex = 1;
+            FullPBCust.Value = 10;
+            // 
+            // FilePBCust
+            // 
+            FilePBCust.EndColor = Color.FromArgb(250, 255, 82, 82);
+            FilePBCust.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            FilePBCust.Location = new Point(12, 390);
+            FilePBCust.Maximum = 10;
+            FilePBCust.Name = "FilePBCust";
+            FilePBCust.Size = new Size(776, 20);
+            FilePBCust.StartColor = Color.FromArgb(250, 232, 90, 24);
+            FilePBCust.TabIndex = 0;
+            FilePBCust.Value = 10;
+            // 
+            // ManifestDownloadBT
+            // 
+            ManifestDownloadBT.Font = new Font("HanWangYenHeavy", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            ManifestDownloadBT.Location = new Point(705, 54);
+            ManifestDownloadBT.Name = "ManifestDownloadBT";
+            ManifestDownloadBT.Size = new Size(83, 37);
+            ManifestDownloadBT.TabIndex = 10;
+            ManifestDownloadBT.Text = "Manifest Download";
+            ManifestDownloadBT.UseVisualStyleBackColor = true;
+            ManifestDownloadBT.Click += ManifestDownloadBT_Click;
+            // 
+            // IpLabel
+            // 
+            IpLabel.AutoSize = true;
+            IpLabel.BackColor = Color.Transparent;
+            IpLabel.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            IpLabel.Location = new Point(216, 64);
+            IpLabel.Name = "IpLabel";
+            IpLabel.Size = new Size(134, 15);
+            IpLabel.TabIndex = 11;
+            IpLabel.Text = "Server Address";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(IpLabel);
+            Controls.Add(ManifestDownloadBT);
             Controls.Add(FilePBCust);
             Controls.Add(FullPBCust);
             Controls.Add(ManifestVersionTB);
@@ -194,5 +229,7 @@
         private PictureBox BGFrameDWPB;
         private PictureBox BGFrameUPPB;
         private PictureBox BGCenterPB;
+        private Button ManifestDownloadBT;
+        private Label IpLabel;
     }
 }
