@@ -42,6 +42,7 @@
             FilePBCust = new CustomProgressBar();
             ManifestDownloadBT = new Button();
             IpLabel = new Label();
+            LoginBT = new Button();
             ((System.ComponentModel.ISupportInitialize)BGFrameDWPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGFrameUPPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGCenterPB).BeginInit();
@@ -49,13 +50,17 @@
             // 
             // updateBT
             // 
+            updateBT.BackColor = Color.OrangeRed;
+            updateBT.FlatAppearance.BorderColor = Color.DarkOrange;
+            updateBT.FlatAppearance.BorderSize = 3;
+            updateBT.FlatStyle = FlatStyle.Flat;
             updateBT.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
-            updateBT.Location = new Point(653, 292);
+            updateBT.Location = new Point(624, 292);
             updateBT.Name = "updateBT";
-            updateBT.Size = new Size(135, 62);
+            updateBT.Size = new Size(164, 43);
             updateBT.TabIndex = 0;
             updateBT.Text = "Update";
-            updateBT.UseVisualStyleBackColor = true;
+            updateBT.UseVisualStyleBackColor = false;
             updateBT.Click += updateBT_ClickAsync;
             // 
             // FullPB
@@ -189,11 +194,27 @@
             IpLabel.TabIndex = 11;
             IpLabel.Text = "Server Address";
             // 
+            // LoginBT
+            // 
+            LoginBT.BackColor = Color.LimeGreen;
+            LoginBT.FlatAppearance.BorderColor = Color.DarkGreen;
+            LoginBT.FlatAppearance.BorderSize = 3;
+            LoginBT.FlatStyle = FlatStyle.Flat;
+            LoginBT.Font = new Font("HanWangYenHeavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            LoginBT.Location = new Point(624, 233);
+            LoginBT.Name = "LoginBT";
+            LoginBT.Size = new Size(164, 53);
+            LoginBT.TabIndex = 12;
+            LoginBT.Text = "Play";
+            LoginBT.UseVisualStyleBackColor = false;
+            LoginBT.Click += LoginBT_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(LoginBT);
             Controls.Add(IpLabel);
             Controls.Add(ManifestDownloadBT);
             Controls.Add(FilePBCust);
@@ -231,5 +252,6 @@
         private PictureBox BGCenterPB;
         private Button ManifestDownloadBT;
         private Label IpLabel;
+        private Button LoginBT;
     }
 }

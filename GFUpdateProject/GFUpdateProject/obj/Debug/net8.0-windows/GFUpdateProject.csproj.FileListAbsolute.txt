@@ -19,3 +19,10 @@ A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdatePro
 A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\obj\Debug\net8.0-windows\GFUpdate.265705F4.Up2Date
 A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\obj\Debug\net8.0-windows\GFUpdateProject.Properties.Resources.resources
 A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\GFUpdateProject.dll.config
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\obj\Debug\net8.0-windows\GFUpdateProject.sourcelink.json
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\GFClientLoginProject.deps.json
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\GFClientLoginProject.runtimeconfig.json
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\GFClientLoginProject.exe
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\GFClientLoginProject.dll
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\GFClientLoginProject.pdb
+A:\GAMESALPHA\GrandFantasia Server Files\GF Projects\GFUpdateProject\GFUpdateProject\GFUpdateProject\bin\Debug\net8.0-windows\GFClientLoginProject.dll.config

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
 using static System.Net.WebRequestMethods;
+using GFClientLoginProject;
 
 namespace GFUpdateProject
 {
@@ -34,6 +35,7 @@ namespace GFUpdateProject
 
             GameFolderTB.Text = localGamePath;
             ServerAddressTB.Text = ServerIP;
+            LoginBT.Enabled = false;
 
 
         }
@@ -49,14 +51,29 @@ namespace GFUpdateProject
             // Ler o manifesto
             //var manifest = JsonConvert.DeserializeObject<Manifest>(File.ReadAllText(manifestUrl));
 
-            // Definir a barra de progresso com o número total de arquivos
-            FullPBCust.Maximum = manifest.Files.Length;
-            FullPBCust.Value = 0; // Começar no zero
+            
+            updateBT.Enabled = false;
+
 
 
             try
             {
                 MessageBox.Show("Iniciando a atualização...");
+
+
+                bool manifestLoaded = await ManifestDownload();
+
+                if (!manifestLoaded)
+                {
+                    MessageBox.Show("Erro ao carregar o manifesto. Operação cancelada.");
+                    updateBT.Enabled = true;
+                    return; // Cancela a execução se houver falha ao obter os dados
+
+                }
+
+                // Definir a barra de progresso com o número total de arquivos
+                FullPBCust.Maximum = manifest.Files.Length;
+                FullPBCust.Value = 0; // Começar no zero
 
                 // Chama o método de download dos arquivos
                 await UpdateFiles();
@@ -69,17 +86,36 @@ namespace GFUpdateProject
                 MessageBox.Show($"Erro durante a atualização: {ex.Message}");
             }
 
-
+            updateBT.Enabled = true;
 
         }
 
-        public async Task ManifestDownload()
+        public async Task<bool> ManifestDownload()
         {
+            ManifestDownloadBT.Enabled = false;
             manifestUrl = "http://" + ServerIP + "/UPDFiles/manifest.json";
             try
             {
                 using (HttpClient client = new HttpClient())
                 {
+
+                    MessageBox.Show("Buscando o manifesto...");
+
+                    // Define um tempo limite para a requisição (por exemplo, 10 segundos)
+                    client.Timeout = TimeSpan.FromSeconds(10);
+
+                    // Tenta baixar o arquivo de manifesto
+                    HttpResponseMessage response = await client.GetAsync(manifestUrl);
+
+                    // Verifica se o arquivo foi encontrado no servidor
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show($"O arquivo de manifesto não foi encontrado: {manifestUrl}");
+                        ManifestDownloadBT.Enabled = true;
+                        return false;
+                    }
+
+
                     MessageBox.Show("Baixando o manifesto...");
 
                     // Baixar o manifesto JSON
@@ -88,15 +124,32 @@ namespace GFUpdateProject
                     ManifestVersionTB.Text = manifest.Version;
 
                     MessageBox.Show(manifest.Version);
-
+                    ManifestDownloadBT.Enabled = true;
+                    return true;
 
                 }
+            }
+            catch (HttpRequestException ex)
+            {
+                // Captura erros de conexão
+                throw new Exception($"Erro ao acessar o manifesto: {ex.Message}");
+                ManifestDownloadBT.Enabled = true;
+                return false;
+            }
+            catch (TaskCanceledException ex)
+            {
+                // Captura erro de timeout (quando o servidor não responde no tempo esperado)
+                MessageBox.Show("O servidor não respondeu no tempo esperado. Verifique o IP ou endereço.");
+                ManifestDownloadBT.Enabled = true;
+                return false;
             }
             catch (Exception ex)
             {
                 throw new Exception($"Erro ao baixar os arquivos: {ex.Message}");
+                ManifestDownloadBT.Enabled = true;
+                return false;
             }
-
+            
 
         }
 
@@ -155,7 +208,16 @@ namespace GFUpdateProject
 
 
                     }
+
+                    LoginBT.Enabled = true;
+
                 }
+            }
+            catch (HttpRequestException ex)
+            {
+                // Captura erros de conexão
+                throw new Exception($"Erro ao acessar o arquivo: {ex.Message}");
+
             }
             catch (Exception ex)
             {
@@ -272,6 +334,13 @@ namespace GFUpdateProject
             //MessageBox.Show(ServerIP);
             Properties.Settings.Default.ServerIpConfig = ServerIP;
             Properties.Settings.Default.Save();
+        }
+
+        private void LoginBT_Click(object sender, EventArgs e)
+        {
+            GFLogin gfloginf = new GFLogin();
+
+            gfloginf.ShowDialog();
         }
     }
 }
