@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Security.Cryptography;
 using static System.Net.WebRequestMethods;
 using GFClientLoginProject;
+using System.Linq;
 
 namespace GFUpdateProject
 {
@@ -86,6 +87,10 @@ namespace GFUpdateProject
                 FullPBCust.Maximum = manifest.Files.Length;
                 FullPBCust.Value = 0; // Começar no zero
 
+                MessageBox.Show(manifest.Files.Length.ToString());
+
+
+
                 // Chama o método de download dos arquivos
                 await UpdateFiles();
 
@@ -155,6 +160,7 @@ namespace GFUpdateProject
             {
                 // Captura erro de timeout (quando o servidor não responde no tempo esperado)
                 MessageBox.Show("O servidor não respondeu no tempo esperado. Verifique o IP ou endereço.");
+                MessageTB.Text = "Falha na busca pelo manifesto, verifique o endereco do servidor.";
                 ManifestDownloadBT.Enabled = true;
                 return false;
             }
@@ -182,6 +188,13 @@ namespace GFUpdateProject
                     //string manifestJson = await client.GetStringAsync(manifestUrl);
                     //var manifest = Newtonsoft.Json.JsonConvert.DeserializeObject<Manifest>(manifestJson);
 
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        FullPBCust.Maximum = manifest.Files.Length;  // Definir o valor máximo
+                        FullPBCust.Value = 0;  // Reiniciar o progresso
+                    });
+
+
                     // Processar cada arquivo no manifesto
                     foreach (var file in manifest.Files)
                     {
@@ -198,8 +211,11 @@ namespace GFUpdateProject
                         // Verificar se o arquivo precisa ser atualizado
                         if (!System.IO.File.Exists(localFilePath) || !VerifyFileChecksum(localFilePath, file.Checksum))
                         {
-                            //MessageBox.Show($"Baixando {file.Name}...");
-                            MessageTB.Text = $"Baixando {file.Name}...";
+                            // Atualiza a TextBox na UI thread
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                MessageTB.Text = $"Baixando {file.Name}...";
+                            });
 
                             // Baixar o arquivo
                             //byte[] fileData = await client.GetByteArrayAsync(file.Url);
@@ -211,18 +227,30 @@ namespace GFUpdateProject
 
 
                             // MessageBox.Show($"{file.Name} atualizado com sucesso.");
-                            MessageTB.Text = $"{file.Name} atualizado com sucesso.";
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                MessageTB.Text = $"{file.Name} atualizado com sucesso.";
+                            });
                         }
                         else
                         {
                             //MessageBox.Show($"{file.Name} já está atualizado.");
-                            MessageTB.Text = $"{file.Name} já está atualizado.";
+                            
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                MessageTB.Text = $"{file.Name} já está atualizado.";
+                            });
                         }
 
                         // Atualizar a barra de progresso
                         //FullPB.Value += 1;
                         //FilePBCust.Value += 1;
-                        FullPBCust.Value += 1;
+                        
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            FullPBCust.Value += 1;
+                        });
+
 
 
                     }
@@ -230,6 +258,10 @@ namespace GFUpdateProject
                     LoginBT.Enabled = true;
 
                 }
+                //HttpClientHandler handler = new HttpClientHandler
+                //{
+                //    MaxConnectionsPerServer = 10 // Aumenta o número máximo de conexões simultâneas por servidor
+                //};
             }
             catch (HttpRequestException ex)
             {
@@ -272,8 +304,13 @@ namespace GFUpdateProject
                 var totalBytes = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
 
                 // Inicializar a barra de progresso do arquivo
-                FilePBCust.Value = 0;
-                FilePBCust.Maximum = (int)totalBytes;
+                
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    FilePBCust.Value = 0;
+                    FilePBCust.Maximum = (int)totalBytes;
+                });
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync())
                 {
@@ -291,7 +328,11 @@ namespace GFUpdateProject
                             if (totalBytes != -1)
                             {
                                 // Atualizar a barra de progresso para o arquivo atual
-                                FilePBCust.Value = (int)totalRead;
+                                
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    FilePBCust.Value = (int)totalRead;
+                                });
                             }
                         }
                     }

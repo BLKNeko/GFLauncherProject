@@ -24,8 +24,14 @@ namespace GFUpdateProject
         {
             Rectangle rec = e.ClipRectangle;
 
-            // Ajusta a largura do retângulo com base no valor atual da barra
-            rec.Width = (int)(rec.Width * ((double)Value / Maximum)) - 4;
+            // Calcula a largura do retângulo com base no progresso atual
+            if (Maximum > 0) // Evitar divisão por zero
+            {
+                rec.Width = (int)(rec.Width * ((double)Value / Maximum));
+            }
+
+            // Limitar a largura do retângulo ao tamanho máximo da barra de progresso
+            rec.Width = Math.Min(rec.Width, this.Width);
 
             // Desenha a borda da barra de progresso
             if (ProgressBarRenderer.IsSupported)
@@ -33,11 +39,14 @@ namespace GFUpdateProject
                 ProgressBarRenderer.DrawHorizontalBar(e.Graphics, e.ClipRectangle);
             }
 
-            // Cria um gradiente linear entre StartColor e EndColor
-            using (LinearGradientBrush brush = new LinearGradientBrush(rec, StartColor, EndColor, GradientMode))
+            if (rec.Width > 0 && rec.Height > 0)
             {
-                // Preenche a barra de progresso com o gradiente
-                e.Graphics.FillRectangle(brush, 2, 2, rec.Width, rec.Height - 4);
+                // Cria um gradiente linear entre StartColor e EndColor
+                using (LinearGradientBrush brush = new LinearGradientBrush(rec, StartColor, EndColor, GradientMode))
+                {
+                    // Preenche a barra de progresso com o gradiente
+                    e.Graphics.FillRectangle(brush, 2, 2, rec.Width - 4, rec.Height - 4);
+                }
             }
         }
     }
