@@ -34,10 +34,20 @@ namespace GFUpdateProject
 
 
             GameFolderTB.Text = localGamePath;
+            SharedData.GameFolderTBValue = GameFolderTB.Text;
             ServerAddressTB.Text = ServerIP;
-            LoginBT.Enabled = false;
+            //LoginBT.Enabled = false;
 
 
+
+        }
+
+        // Propriedade pública para acessar o valor da TextBox
+
+
+        public static class SharedData
+        {
+            public static string GameFolderTBValue { get; set; }
         }
 
 
@@ -58,7 +68,8 @@ namespace GFUpdateProject
 
             try
             {
-                MessageBox.Show("Iniciando a atualização...");
+                //MessageBox.Show("Iniciando a atualização...");
+                MessageTB.Text = "Iniciando a atualização...";
 
 
                 bool manifestLoaded = await ManifestDownload();
@@ -78,7 +89,8 @@ namespace GFUpdateProject
                 // Chama o método de download dos arquivos
                 await UpdateFiles();
 
-                MessageBox.Show("Atualização concluída.");
+                //MessageBox.Show("Atualização concluída.");
+                MessageTB.Text = "Atualização concluída!";
             }
             catch (Exception ex)
             {
@@ -99,7 +111,8 @@ namespace GFUpdateProject
                 using (HttpClient client = new HttpClient())
                 {
 
-                    MessageBox.Show("Buscando o manifesto...");
+                    //MessageBox.Show("Buscando o manifesto...");
+                    MessageTB.Text = "Buscando o manifesto...";
 
                     // Define um tempo limite para a requisição (por exemplo, 10 segundos)
                     client.Timeout = TimeSpan.FromSeconds(10);
@@ -116,14 +129,16 @@ namespace GFUpdateProject
                     }
 
 
-                    MessageBox.Show("Baixando o manifesto...");
+                    //MessageBox.Show("Baixando o manifesto...");
+                    MessageTB.Text = "Baixando o manifesto...";
 
                     // Baixar o manifesto JSON
                     string manifestJson = await client.GetStringAsync(manifestUrl);
                     manifest = Newtonsoft.Json.JsonConvert.DeserializeObject<Manifest>(manifestJson);
                     ManifestVersionTB.Text = manifest.Version;
 
-                    MessageBox.Show(manifest.Version);
+                    //MessageBox.Show(manifest.Version);
+                    MessageTB.Text = "Donwload do manifesto concluido!";
                     ManifestDownloadBT.Enabled = true;
                     return true;
 
@@ -183,7 +198,8 @@ namespace GFUpdateProject
                         // Verificar se o arquivo precisa ser atualizado
                         if (!System.IO.File.Exists(localFilePath) || !VerifyFileChecksum(localFilePath, file.Checksum))
                         {
-                            MessageBox.Show($"Baixando {file.Name}...");
+                            //MessageBox.Show($"Baixando {file.Name}...");
+                            MessageTB.Text = $"Baixando {file.Name}...";
 
                             // Baixar o arquivo
                             //byte[] fileData = await client.GetByteArrayAsync(file.Url);
@@ -195,10 +211,12 @@ namespace GFUpdateProject
 
 
                             // MessageBox.Show($"{file.Name} atualizado com sucesso.");
+                            MessageTB.Text = $"{file.Name} atualizado com sucesso.";
                         }
                         else
                         {
-                            MessageBox.Show($"{file.Name} já está atualizado.");
+                            //MessageBox.Show($"{file.Name} já está atualizado.");
+                            MessageTB.Text = $"{file.Name} já está atualizado.";
                         }
 
                         // Atualizar a barra de progresso
@@ -312,6 +330,7 @@ namespace GFUpdateProject
                     // Como o utilizador carregou no OK, o directorio escolhido pode ser acedido da seguinte forma:
                     localGamePath = dirDialog.SelectedPath;
                     GameFolderTB.Text = localGamePath;
+                    SharedData.GameFolderTBValue = GameFolderTB.Text;
                 }
                 else
                 {

@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="KaslowRZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KaslowRZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="KaslowFrame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KaslowFrame.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -127,7 +130,10 @@
   <data name="KaslowFrameRZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KaslowFrameRZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="KaslowRZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\KaslowRZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GFLogoNBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GFLogoNBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GFWP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GFWP.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

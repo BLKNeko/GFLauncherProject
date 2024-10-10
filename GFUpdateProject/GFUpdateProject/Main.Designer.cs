@@ -43,6 +43,8 @@
             ManifestDownloadBT = new Button();
             IpLabel = new Label();
             LoginBT = new Button();
+            MessageTB = new TextBox();
+            MessageLB = new Label();
             ((System.ComponentModel.ISupportInitialize)BGFrameDWPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGFrameUPPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGCenterPB).BeginInit();
@@ -111,11 +113,11 @@
             // 
             // ManifestVersionTB
             // 
-            ManifestVersionTB.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            ManifestVersionTB.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 136);
             ManifestVersionTB.Location = new Point(624, 59);
             ManifestVersionTB.Name = "ManifestVersionTB";
             ManifestVersionTB.ReadOnly = true;
-            ManifestVersionTB.Size = new Size(75, 23);
+            ManifestVersionTB.Size = new Size(75, 26);
             ManifestVersionTB.TabIndex = 6;
             // 
             // BGFrameDWPB
@@ -188,7 +190,7 @@
             IpLabel.AutoSize = true;
             IpLabel.BackColor = Color.Transparent;
             IpLabel.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
-            IpLabel.Location = new Point(216, 64);
+            IpLabel.Location = new Point(40, 41);
             IpLabel.Name = "IpLabel";
             IpLabel.Size = new Size(134, 15);
             IpLabel.TabIndex = 11;
@@ -209,11 +211,33 @@
             LoginBT.UseVisualStyleBackColor = false;
             LoginBT.Click += LoginBT_Click;
             // 
+            // MessageTB
+            // 
+            MessageTB.Enabled = false;
+            MessageTB.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 136);
+            MessageTB.Location = new Point(230, 59);
+            MessageTB.Name = "MessageTB";
+            MessageTB.Size = new Size(366, 26);
+            MessageTB.TabIndex = 13;
+            MessageTB.Text = "Message Box . . .";
+            MessageTB.TextAlign = HorizontalAlignment.Center;
+            // 
+            // MessageLB
+            // 
+            MessageLB.AutoSize = true;
+            MessageLB.Location = new Point(395, 41);
+            MessageLB.Name = "MessageLB";
+            MessageLB.Size = new Size(76, 15);
+            MessageLB.TabIndex = 14;
+            MessageLB.Text = "Message Box";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(MessageLB);
+            Controls.Add(MessageTB);
             Controls.Add(LoginBT);
             Controls.Add(IpLabel);
             Controls.Add(ManifestDownloadBT);
@@ -243,7 +267,7 @@
         private ProgressBar FilePB;
         private CustomProgressBar FullPBCust;
         private CustomProgressBar FilePBCust;
-        private TextBox GameFolderTB;
+        public TextBox GameFolderTB;
         private Button GameFolderBT;
         private TextBox ServerAddressTB;
         private TextBox ManifestVersionTB;
@@ -253,5 +277,7 @@
         private Button ManifestDownloadBT;
         private Label IpLabel;
         private Button LoginBT;
+        private TextBox MessageTB;
+        private Label MessageLB;
     }
 }

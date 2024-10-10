@@ -63,6 +63,26 @@ namespace GFUpdateProject.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GFLogoNBG {
+            get {
+                object obj = ResourceManager.GetObject("GFLogoNBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GFWP {
+            get {
+                object obj = ResourceManager.GetObject("GFWP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KaslowFrame {
             get {
                 object obj = ResourceManager.GetObject("KaslowFrame", resourceCulture);
