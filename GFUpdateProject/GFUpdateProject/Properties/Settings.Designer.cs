@@ -70,5 +70,17 @@ namespace GFUpdateProject.Properties {
                 this["SVPass"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ManiVers {
+            get {
+                return ((int)(this["ManiVers"]));
+            }
+            set {
+                this["ManiVers"] = value;
+            }
+        }
     }
 }

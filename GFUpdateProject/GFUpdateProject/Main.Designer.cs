@@ -201,6 +201,7 @@
             // LoginBT
             // 
             LoginBT.BackColor = Color.LimeGreen;
+            LoginBT.Enabled = false;
             LoginBT.FlatAppearance.BorderColor = Color.DarkGreen;
             LoginBT.FlatAppearance.BorderSize = 3;
             LoginBT.FlatStyle = FlatStyle.Flat;

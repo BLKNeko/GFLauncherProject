@@ -31,7 +31,7 @@ namespace GFUpdateProject
         {
 
             InitializeComponent();
-            ManifestDownload();
+            //CheckManifestVersion();
 
 
             GameFolderTB.Text = localGamePath;
@@ -40,7 +40,15 @@ namespace GFUpdateProject
             //LoginBT.Enabled = false;
 
 
+            // Mover a verificação do manifesto para o evento Load
+            this.Load += Main_Load;
+        }
 
+        // Evento Load assíncrono
+        private async void Main_Load(object sender, EventArgs e)
+        {
+            // Chama o método assíncrono e aguarda a execução
+            await CheckManifestVersion();
         }
 
         // Propriedade pública para acessar o valor da TextBox
@@ -60,6 +68,36 @@ namespace GFUpdateProject
                     MessageTB.Text = message;
                 });
             });
+
+        }
+
+        private async Task CheckManifestVersion()
+        {
+            bool GetManifest = await ManifestDownload();
+
+            if(!GetManifest)
+            {
+                MessageBox.Show($"Falha ao verificar versao!");
+            }
+
+            string ManiVersion = manifest.Version.Replace(".", "");
+
+
+            if (Int32.Parse(ManiVersion) > Properties.Settings.Default.ManiVers)
+            {
+                MessageBox.Show("Nova versao identificada! faca o update para entrar no jogo!");
+                await UpdateMessage("Nova versao identificada! faca o update para entrar no jogo!");
+                LoginBT.Enabled = false;
+                updateBT.Enabled = true;
+                Properties.Settings.Default.ManiVers = Int32.Parse(ManiVersion);
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                LoginBT.Enabled = true;
+                await UpdateMessage("Pronto para jogar!!!");
+            }
+                
 
         }
 
@@ -127,9 +165,11 @@ namespace GFUpdateProject
                 FullPBCust.Maximum = manifest.Files.Length;
                 FullPBCust.Value = 0; // Começar no zero
 
-                
+                await UpdateProgressLB(true, $"{FullPBCust.Value} / {FullPBCust.Maximum}");
+                await UpdateProgressLB(false, "0 / 0");
 
-                MessageBox.Show(manifest.Files.Length.ToString());
+
+                //MessageBox.Show(manifest.Files.Length.ToString());
 
 
 
@@ -137,7 +177,9 @@ namespace GFUpdateProject
                 await UpdateFiles();
 
                 //MessageBox.Show("Atualização concluída.");
-                MessageTB.Text = "Atualização concluída!";
+                //MessageTB.Text = "Atualização concluída!";
+                await UpdateMessage("Atualização concluída!");
+                LoginBT.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -300,7 +342,7 @@ namespace GFUpdateProject
                         {
                             FullPBCust.Value += 1;
                         });
-
+                        await UpdateProgressLB(true, $"{FullPBCust.Value} / {FullPBCust.Maximum}");
 
 
                     }
@@ -383,6 +425,7 @@ namespace GFUpdateProject
                                 {
                                     FilePBCust.Value = (int)totalRead;
                                 });
+                                await UpdateProgressLB(false, $"{FilePBCust.Value} / {FilePBCust.Maximum}");
                             }
                         }
                     }
