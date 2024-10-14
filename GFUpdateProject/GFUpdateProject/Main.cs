@@ -51,6 +51,45 @@ namespace GFUpdateProject
             public static string GameFolderTBValue { get; set; }
         }
 
+        public async Task UpdateMessage(string message)
+        {
+            await Task.Run(() =>
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    MessageTB.Text = message;
+                });
+            });
+
+        }
+
+        public async Task UpdateProgressLB(bool Full, string message)
+        {
+            if (Full)
+            {
+                await Task.Run(() =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        FullProgressLB.Text = message;
+                    });
+                });
+            }
+            else
+            {
+                await Task.Run(() =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        FileProgressLB.Text = message;
+                    });
+                });
+            }
+
+            
+
+        }
+
 
         private async void updateBT_ClickAsync(object sender, EventArgs e)
         {
@@ -70,7 +109,8 @@ namespace GFUpdateProject
             try
             {
                 //MessageBox.Show("Iniciando a atualização...");
-                MessageTB.Text = "Iniciando a atualização...";
+                //MessageTB.Text = "Iniciando a atualização...";
+                await UpdateMessage("Iniciando a atualização...");
 
 
                 bool manifestLoaded = await ManifestDownload();
@@ -86,6 +126,8 @@ namespace GFUpdateProject
                 // Definir a barra de progresso com o número total de arquivos
                 FullPBCust.Maximum = manifest.Files.Length;
                 FullPBCust.Value = 0; // Começar no zero
+
+                
 
                 MessageBox.Show(manifest.Files.Length.ToString());
 
@@ -145,6 +187,7 @@ namespace GFUpdateProject
                     //MessageBox.Show(manifest.Version);
                     MessageTB.Text = "Donwload do manifesto concluido!";
                     ManifestDownloadBT.Enabled = true;
+                    FullProgressLB.Text = manifest.Files.Length.ToString() + " / " + manifest.Files.Length.ToString();
                     return true;
 
                 }
@@ -212,10 +255,12 @@ namespace GFUpdateProject
                         if (!System.IO.File.Exists(localFilePath) || !VerifyFileChecksum(localFilePath, file.Checksum))
                         {
                             // Atualiza a TextBox na UI thread
-                            this.Invoke((MethodInvoker)delegate
-                            {
-                                MessageTB.Text = $"Baixando {file.Name}...";
-                            });
+                           // this.Invoke((MethodInvoker)delegate
+                           // {
+                            //    MessageTB.Text = $"Baixando {file.Name}...";
+                           // });
+
+                            await UpdateMessage($"Baixando {file.Name}...");
 
                             // Baixar o arquivo
                             //byte[] fileData = await client.GetByteArrayAsync(file.Url);
@@ -225,21 +270,26 @@ namespace GFUpdateProject
                             await DownloadFileWithProgressAsync(client, file.Url, localFilePath);
 
 
-
+                            await UpdateMessage($"{file.Name} atualizado com sucesso.");
                             // MessageBox.Show($"{file.Name} atualizado com sucesso.");
-                            this.Invoke((MethodInvoker)delegate
-                            {
-                                MessageTB.Text = $"{file.Name} atualizado com sucesso.";
-                            });
+                            //this.Invoke((MethodInvoker)delegate
+                            //{
+                            //    MessageTB.Text = $"{file.Name} atualizado com sucesso.";
+                            //});
                         }
                         else
                         {
                             //MessageBox.Show($"{file.Name} já está atualizado.");
-                            
-                            this.Invoke((MethodInvoker)delegate
-                            {
-                                MessageTB.Text = $"{file.Name} já está atualizado.";
-                            });
+
+                            await UpdateMessage($"{file.Name} já está atualizado.");
+
+                            //MessageTB.Text = $"já está atualizado.";
+
+
+                            //this.Invoke((MethodInvoker)delegate
+                            //{
+                            //    MessageTB.Text = $"{file.Name} já está atualizado.";
+                            //});
                         }
 
                         // Atualizar a barra de progresso

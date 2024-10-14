@@ -45,6 +45,8 @@
             LoginBT = new Button();
             MessageTB = new TextBox();
             MessageLB = new Label();
+            FileProgressLB = new Label();
+            FullProgressLB = new Label();
             ((System.ComponentModel.ISupportInitialize)BGFrameDWPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGFrameUPPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGCenterPB).BeginInit();
@@ -231,11 +233,37 @@
             MessageLB.TabIndex = 14;
             MessageLB.Text = "Message Box";
             // 
+            // FileProgressLB
+            // 
+            FileProgressLB.AutoSize = true;
+            FileProgressLB.BackColor = Color.Transparent;
+            FileProgressLB.FlatStyle = FlatStyle.Flat;
+            FileProgressLB.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 136);
+            FileProgressLB.Location = new Point(381, 390);
+            FileProgressLB.Name = "FileProgressLB";
+            FileProgressLB.Size = new Size(110, 14);
+            FileProgressLB.TabIndex = 15;
+            FileProgressLB.Text = "FileProgressLB";
+            // 
+            // FullProgressLB
+            // 
+            FullProgressLB.AutoSize = true;
+            FullProgressLB.BackColor = Color.Transparent;
+            FullProgressLB.FlatStyle = FlatStyle.Flat;
+            FullProgressLB.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 136);
+            FullProgressLB.Location = new Point(380, 420);
+            FullProgressLB.Name = "FullProgressLB";
+            FullProgressLB.Size = new Size(109, 14);
+            FullProgressLB.TabIndex = 16;
+            FullProgressLB.Text = "FullProgressLB";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(FullProgressLB);
+            Controls.Add(FileProgressLB);
             Controls.Add(MessageLB);
             Controls.Add(MessageTB);
             Controls.Add(LoginBT);
@@ -279,5 +307,7 @@
         private Button LoginBT;
         private TextBox MessageTB;
         private Label MessageLB;
+        private Label FileProgressLB;
+        private Label FullProgressLB;
     }
 }
