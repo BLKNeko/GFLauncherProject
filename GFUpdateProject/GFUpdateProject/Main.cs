@@ -21,7 +21,7 @@ namespace GFUpdateProject
 
         private static string ServerIP = Properties.Settings.Default.ServerIpConfig;
         //static string manifestUrl = "http://172.26.162.7/UPDFiles/manifest.json"; // URL do manifesto no servidor
-        static string manifestUrl = "http://" + ServerIP + "/UPDFiles/manifest.json"; // URL do manifesto no servidor
+        static string manifestUrl = "http://" + ServerIP + "/GFPLFiles/manifest.json"; // URL do manifesto no servidor
         //static string localGamePath = @"A:\GAMESALPHA\GrandFantasia Server Files\074\TestClientFolder"; // Caminho do jogo no PC do client
         static string localGamePath = Environment.CurrentDirectory; // Caminho do jogo no PC do client
         static Manifest manifest;
@@ -236,7 +236,7 @@ namespace GFUpdateProject
         public async Task<bool> ManifestDownload()
         {
             ManifestDownloadBT.Enabled = false;
-            manifestUrl = "http://" + ServerIP + "/UPDFiles/manifest.json";
+            manifestUrl = "http://" + ServerIP + "/GFPLFiles/manifest.json";
             try
             {
                 using (HttpClient client = new HttpClient())

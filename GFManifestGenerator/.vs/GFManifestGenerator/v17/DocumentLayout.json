@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFManifestGenerator\\GFManifestGenerator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B07AC28-F8B3-48C5-9420-98E74F2C6DC7}|GFManifestGenerator\\GFManifestGenerator.csproj|a:\\gamesalpha\\grandfantasia server files\\gf projects\\gfmanifestgenerator\\gfmanifestgenerator\\gfmanifestgenerator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B07AC28-F8B3-48C5-9420-98E74F2C6DC7}|GFManifestGenerator\\GFManifestGenerator.csproj|solutionrelative:gfmanifestgenerator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B07AC28-F8B3-48C5-9420-98E74F2C6DC7}|GFManifestGenerator\\GFManifestGenerator.csproj|a:\\gamesalpha\\grandfantasia server files\\gf projects\\gfmanifestgenerator\\gfmanifestgenerator\\gfmanifestgenerator\\gfmanifestgenerator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{5B07AC28-F8B3-48C5-9420-98E74F2C6DC7}|GFManifestGenerator\\GFManifestGenerator.csproj|solutionrelative:gfmanifestgenerator\\gfmanifestgenerator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GFManifestGenerator",
+              "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFManifestGenerator\\GFManifestGenerator\\GFManifestGenerator\\GFManifestGenerator.csproj",
+              "RelativeDocumentMoniker": "GFManifestGenerator\\GFManifestGenerator.csproj",
+              "ToolTip": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFManifestGenerator\\GFManifestGenerator\\GFManifestGenerator\\GFManifestGenerator.csproj",
+              "RelativeToolTip": "GFManifestGenerator\\GFManifestGenerator.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-16T23:04:15.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFManifestGenerator\\GFManifestGenerator\\GFManifestGenerator\\Program.cs",
+              "RelativeDocumentMoniker": "GFManifestGenerator\\Program.cs",
+              "ToolTip": "A:\\GAMESALPHA\\GrandFantasia Server Files\\GF Projects\\GFManifestGenerator\\GFManifestGenerator\\GFManifestGenerator\\Program.cs",
+              "RelativeToolTip": "GFManifestGenerator\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHkAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T19:38:37.389Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
