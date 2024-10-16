@@ -47,6 +47,7 @@
             MessageLB = new Label();
             FileProgressLB = new Label();
             FullProgressLB = new Label();
+            ManifestVersionLB = new Label();
             ((System.ComponentModel.ISupportInitialize)BGFrameDWPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGFrameUPPB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BGCenterPB).BeginInit();
@@ -168,7 +169,7 @@
             // 
             FilePBCust.EndColor = Color.FromArgb(250, 255, 82, 82);
             FilePBCust.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            FilePBCust.Location = new Point(12, 390);
+            FilePBCust.Location = new Point(12, 385);
             FilePBCust.Maximum = 10;
             FilePBCust.Name = "FilePBCust";
             FilePBCust.Size = new Size(776, 20);
@@ -228,9 +229,10 @@
             // MessageLB
             // 
             MessageLB.AutoSize = true;
-            MessageLB.Location = new Point(395, 41);
+            MessageLB.Font = new Font("HanWangYenHeavy", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            MessageLB.Location = new Point(360, 41);
             MessageLB.Name = "MessageLB";
-            MessageLB.Size = new Size(76, 15);
+            MessageLB.Size = new Size(113, 15);
             MessageLB.TabIndex = 14;
             MessageLB.Text = "Message Box";
             // 
@@ -238,31 +240,40 @@
             // 
             FileProgressLB.AutoSize = true;
             FileProgressLB.BackColor = Color.Transparent;
-            FileProgressLB.FlatStyle = FlatStyle.Flat;
             FileProgressLB.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 136);
-            FileProgressLB.Location = new Point(381, 390);
+            FileProgressLB.Location = new Point(678, 368);
             FileProgressLB.Name = "FileProgressLB";
-            FileProgressLB.Size = new Size(110, 14);
+            FileProgressLB.Size = new Size(107, 14);
             FileProgressLB.TabIndex = 15;
-            FileProgressLB.Text = "FileProgressLB";
+            FileProgressLB.Text = "0000 / 0000";
             // 
             // FullProgressLB
             // 
             FullProgressLB.AutoSize = true;
             FullProgressLB.BackColor = Color.Transparent;
-            FullProgressLB.FlatStyle = FlatStyle.Flat;
             FullProgressLB.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 136);
-            FullProgressLB.Location = new Point(380, 420);
+            FullProgressLB.Location = new Point(679, 406);
             FullProgressLB.Name = "FullProgressLB";
-            FullProgressLB.Size = new Size(109, 14);
+            FullProgressLB.Size = new Size(107, 14);
             FullProgressLB.TabIndex = 16;
-            FullProgressLB.Text = "FullProgressLB";
+            FullProgressLB.Text = "0000 / 0000";
+            // 
+            // ManifestVersionLB
+            // 
+            ManifestVersionLB.AutoSize = true;
+            ManifestVersionLB.Font = new Font("HanWangYenHeavy", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            ManifestVersionLB.Location = new Point(619, 41);
+            ManifestVersionLB.Name = "ManifestVersionLB";
+            ManifestVersionLB.Size = new Size(82, 14);
+            ManifestVersionLB.TabIndex = 17;
+            ManifestVersionLB.Text = "Mani. Vers.";
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ManifestVersionLB);
             Controls.Add(FullProgressLB);
             Controls.Add(FileProgressLB);
             Controls.Add(MessageLB);
@@ -281,7 +292,7 @@
             Controls.Add(BGCenterPB);
             Controls.Add(BGFrameDWPB);
             Name = "Main";
-            Text = "Form1";
+            Text = "GrandFantasiaPrivateLauncher";
             ((System.ComponentModel.ISupportInitialize)BGFrameDWPB).EndInit();
             ((System.ComponentModel.ISupportInitialize)BGFrameUPPB).EndInit();
             ((System.ComponentModel.ISupportInitialize)BGCenterPB).EndInit();
@@ -310,5 +321,6 @@
         private Label MessageLB;
         private Label FileProgressLB;
         private Label FullProgressLB;
+        private Label ManifestVersionLB;
     }
 }

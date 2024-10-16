@@ -31,6 +31,7 @@ namespace GFUpdateProject
         {
 
             InitializeComponent();
+            LabelFix();
             //CheckManifestVersion();
 
 
@@ -38,6 +39,10 @@ namespace GFUpdateProject
             SharedData.GameFolderTBValue = GameFolderTB.Text;
             ServerAddressTB.Text = ServerIP;
             //LoginBT.Enabled = false;
+            //LoginBT.Enabled = true;
+
+
+
 
 
             // Mover a verificação do manifesto para o evento Load
@@ -47,11 +52,47 @@ namespace GFUpdateProject
         // Evento Load assíncrono
         private async void Main_Load(object sender, EventArgs e)
         {
+
+            
+
             // Chama o método assíncrono e aguarda a execução
             await CheckManifestVersion();
+            await UpdateProgressLB(false, "0000 / 0000");
+            await UpdateProgressLB(true, "0000 / 0000");
+
+
+
+            
+
         }
 
         // Propriedade pública para acessar o valor da TextBox
+
+        private void LabelFix()
+        {
+            //IpLabel
+            IpLabel.Parent = BGFrameUPPB;
+            IpLabel.BackColor = Color.Transparent;
+            IpLabel.ForeColor = Color.White;
+            //MessageLB
+            MessageLB.Parent = BGFrameUPPB;
+            MessageLB.BackColor = Color.Transparent;
+            MessageLB.ForeColor = Color.White;
+            //ManifestVersionLB
+            ManifestVersionLB.Parent = BGFrameUPPB;
+            ManifestVersionLB.BackColor = Color.Transparent;
+            ManifestVersionLB.ForeColor = Color.White;
+            //FileProgressLB
+            FileProgressLB.Parent = BGFrameDWPB;
+            FileProgressLB.BackColor = Color.Transparent;
+            FileProgressLB.ForeColor = Color.White;
+            FileProgressLB.Location = Point.Subtract(FileProgressLB.Location, new Size(BGFrameDWPB.Left, BGFrameDWPB.Top));
+            //FullProgressLB
+            FullProgressLB.Parent = BGFrameDWPB;
+            FullProgressLB.BackColor = Color.Transparent;
+            FullProgressLB.ForeColor = Color.White;
+            FullProgressLB.Location = Point.Subtract(FullProgressLB.Location, new Size(BGFrameDWPB.Left, BGFrameDWPB.Top));
+        }
 
 
         public static class SharedData
@@ -78,6 +119,7 @@ namespace GFUpdateProject
             if(!GetManifest)
             {
                 MessageBox.Show($"Falha ao verificar versao!");
+                return;
             }
 
             string ManiVersion = manifest.Version.Replace(".", "");
@@ -166,7 +208,7 @@ namespace GFUpdateProject
                 FullPBCust.Value = 0; // Começar no zero
 
                 await UpdateProgressLB(true, $"{FullPBCust.Value} / {FullPBCust.Maximum}");
-                await UpdateProgressLB(false, "0 / 0");
+                await UpdateProgressLB(false, "0000 / 0000");
 
 
                 //MessageBox.Show(manifest.Files.Length.ToString());
